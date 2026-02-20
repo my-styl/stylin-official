@@ -1,4 +1,5 @@
 export * from "./attribute";
+export * from "./brand";
 export * from "./campaigns";
 export * from "./cart";
 export * from "./common";

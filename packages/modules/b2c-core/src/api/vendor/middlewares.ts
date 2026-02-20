@@ -6,6 +6,7 @@ import {
 } from "../../shared/infra/http/middlewares";
 import { unlessBaseUrl } from "../../shared/infra/http/utils";
 import { vendorAttributeMiddlewares } from "./attributes/middlewares";
+import { vendorBrandsMiddlewares } from "./brands/middlewares";
 import { vendorCampaignsMiddlewares } from "./campaigns/middlewares";
 import { vendorCors } from "./cors";
 import { vendorCustomerGroupsMiddlewares } from "./customer-groups/middlewares";
@@ -121,5 +122,6 @@ export const vendorMiddlewares: MiddlewareRoute[] = [
   ...vendorRegionsMiddlewares,
   ...vendorNotificationMiddlewares,
   ...vendorAttributeMiddlewares,
+  ...vendorBrandsMiddlewares,
   ...vendorPricePreferencesRoutesMiddlewares,
 ];
