@@ -350,7 +350,7 @@ export const productsToInsert = [
     handle: 'air-vapormax-2023-flyknit-triple-black-sneakers',
     subtitle: '',
     description:
-      'Revolutionary cushioning with VaporMax Air technology and lightweight Flyknit construction. The unique sole eliminates excess weight, while the sleek triple black colorway offers versatile styling options.',
+      'Revolutionary cushioning with VaporMax Air technology and lightweight Flyknit construction. The unique sole eliminates excess weight, while the sleek triple black colorway offers versatile Fleekg options.',
     is_giftcard: false,
     status: ProductStatus.PUBLISHED,
     thumbnail:

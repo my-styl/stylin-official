@@ -6,6 +6,7 @@ import { StepResponse, WorkflowData } from "@medusajs/workflows-sdk";
 
 import { AlgoliaEvents } from "@mercurjs/framework";
 import { SELLER_MODULE } from "../../modules/seller";
+import { BRAND_MODULE } from "../../modules/brand";
 
 import sellerShippingProfile from "../../links/seller-shipping-profile";
 import { productsCreatedHookHandler } from "../attribute/utils";
@@ -161,6 +162,7 @@ createProductsWorkflow.hooks.productsCreated(
       products: WorkflowData<ProductDTO[]>;
       additional_data: {
         seller_id: string | null;
+        brand_id?: string | null;
         secondary_categories: {
           handle: string;
           secondary_categories_ids: string[];
@@ -193,6 +195,19 @@ createProductsWorkflow.hooks.productsCreated(
         },
       };
     });
+
+    if (additional_data?.brand_id) {
+      products.forEach((product) => {
+        remoteLinks.push({
+          [BRAND_MODULE]: {
+            brand_id: additional_data.brand_id,
+          },
+          [Modules.PRODUCT]: {
+            product_id: product.id,
+          },
+        });
+      });
+    }
 
     for (const variant of variants) {
       if (variant.manage_inventory) {

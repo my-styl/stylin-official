@@ -182,7 +182,8 @@ export const POST = async (
       'collection.*',
       'type.*',
       'tags.*',
-      'seller.*'
+      'seller.*',
+      'brand.*'
     ],
     filters: {
       id: productIds

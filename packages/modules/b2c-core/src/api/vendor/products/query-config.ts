@@ -34,6 +34,7 @@ export const vendorProductFields = [
   "*attribute_values",
   "*attribute_values.attribute",
   "*secondary_categories",
+  "*brand",
 ];
 
 export const vendorProductQueryConfig = {

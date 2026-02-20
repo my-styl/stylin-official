@@ -7,6 +7,7 @@ module.exports = defineConfig({
     disable: true // Disable built-in admin - using separate admin-panel container
   },
   projectConfig: {
+    redisUrl: process.env.REDIS_URL,
     databaseUrl: process.env.DATABASE_URL,
     databaseDriverOptions: process.env.NODE_ENV === 'production' ? {
       connection: { 

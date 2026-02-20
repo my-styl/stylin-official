@@ -79,6 +79,14 @@ export const AlgoliaProductValidator = z.object({
       store_status: z.nativeEnum(StoreStatus).nullish(),
     })
     .nullable(),
+  brand: z
+    .object({
+      id: z.string(),
+      name: z.string(),
+      handle: z.string(),
+    })
+    .nullable()
+    .optional(),
 });
 
 export const AlgoliaVariantValidator = z.object({

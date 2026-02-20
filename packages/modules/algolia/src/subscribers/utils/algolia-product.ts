@@ -137,7 +137,10 @@ export async function findAndTransformAlgoliaProducts(
       'attribute_values.value',
       'attribute_values.attribute.name',
       'attribute_values.attribute.is_filterable',
-      'attribute_values.attribute.ui_component'
+      'attribute_values.attribute.ui_component',
+      'brand.id',
+      'brand.name',
+      'brand.handle'
     ],
     filters: ids.length
       ? {
@@ -154,6 +157,14 @@ export async function findAndTransformAlgoliaProducts(
       product.id
     )
     product.seller = await selectProductSeller(container, product.id)
+
+    product.brand = product.brand
+      ? {
+          id: product.brand.id,
+          name: product.brand.name,
+          handle: product.brand.handle
+        }
+      : null
 
     product.options = (product.options ?? [])
       .filter((option) => option?.title && option?.values)

@@ -41,10 +41,18 @@ export default async function orderSetPlacedHandler({
     return
   }
 
+  const payment = payment_collection.payments[0]
+
+  // Skip auto-capture for manual/COD payments
+  // Payment stays "authorized" until admin manually captures after delivery
+  if (payment.provider_id === 'pp_system_default') {
+    return
+  }
+
   const { result } = await capturePaymentWorkflow.run({
     container,
     input: {
-      payment_id: payment_collection.payments[0].id
+      payment_id: payment.id
     }
   })
 
