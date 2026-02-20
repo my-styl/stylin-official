@@ -2,8 +2,13 @@
 .env
 .DS_Store
 /uploads
+/static
 /node_modules
 yarn-error.log
+*.log
+
+# Local env files (all variants)
+.env.*
 
 .idea
 
